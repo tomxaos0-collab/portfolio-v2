@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/card", "destination": "https://bio.tomxaos.ru" },
+    { "source": "/card/:path*", "destination": "https://bio.tomxaos.ru/:path*" }
+  ]
+}
