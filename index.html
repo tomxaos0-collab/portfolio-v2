@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>tomxaos™ CoreApps — Разработка Сайтов & Telegram MiniApp</title>
+  <title>tomxaos™ CoreApps — Telegram MiniApps, Боты & Веб-сервисы</title>
   <meta name="description" content="Разработка Telegram MiniApp, ботов любой сложности, интернет-магазинов, сайтов-визиток и систем автоматизации от tomxaos™ CoreApps.">
   
   <!-- Open Graph / Telegram Preview Meta Tags -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tomxaos.ru/">
-  <meta property="og:title" content="tomxaos™ CoreApps — Разработка Сайтов & Telegram MiniApp">
+  <meta property="og:title" content="tomxaos™ CoreApps — Разработка Telegram MiniApps & Ботов">
   <meta property="og:description" content="Разработка Telegram MiniApp, ботов любой сложности, интернет-магазинов, сайтов-визиток и систем автоматизации.">
   <meta property="og:image" content="https://tomxaos.ru/assets/retail-admin-saas.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
@@ -32,8 +32,9 @@
           <li><a href="#contact">Контакты</a></li>
         </ul>
 
-        <a href="https://t.me/tomxaos" target="_blank" class="btn-header">
-          <span>Telegram (@tomxaos)</span>
+        <a href="https://t.me/tomxaos" target="_blank" rel="noopener noreferrer" class="btn-header">
+          <span class="desktop-text">Telegram (@tomxaos)</span>
+          <span class="mobile-text">@tomxaos</span>
         </a>
       </div>
     </div>
@@ -41,96 +42,155 @@
 
   <!-- 2. HERO SECTION -->
   <section class="hero-section container">
+    <div class="hero-status-bar">
+      <span class="status-dot"></span>
+      <span class="status-text">Принимаю заказы на разработку</span>
+    </div>
+
     <h1 class="hero-display">
-      Сайты &amp;<br>
-      MiniApp.
+      Telegram MiniApps &amp;<br>
+      Боты под ключ.
     </h1>
 
-    <div class="hero-side-content">
+    <div class="hero-grid">
       <p class="hero-desc">
-        Разработка проектов любого уровня под брендом <strong>tomxaos™ CoreApps</strong>. Автоматизация рутинных задач, сайты-визитки, Telegram-боты любой сложности и MiniApp.
+        Разработка проектов любого уровня под брендом <strong>tomxaos™ CoreApps</strong>. Создаю Telegram MiniApps, ботов любой сложности, интернет-магазины, сайты-визитки, системы учета и онлайн-эквайринг.
       </p>
 
       <div class="hero-cta-group">
-        <a href="#projects" class="btn-circle-arrow">↘</a>
-        <span style="font-weight: 700; font-size: 15px;">Смотреть проекты</span>
+        <a href="#projects" class="btn-circle-arrow" aria-label="Смотреть проекты">↘</a>
+        <span style="font-weight: 700; font-size: 15px;">Смотреть кейсы</span>
       </div>
     </div>
   </section>
 
   <!-- 3. PROJECTS 2x2 VIVID CARDS GRID -->
   <section id="projects" class="projects-section container">
-    <div class="section-title-label">Проекты / Projects</div>
+    <div class="section-header-block">
+      <div class="section-title-label">Избранные кейсы</div>
+      <div class="section-badge">Разработка &amp; Интеграции</div>
+    </div>
 
     <div class="projects-vivid-grid">
 
-      <!-- CARD 1: REAL AURA BEAUTY STUDIO TELEGRAM MINIAPP (@port_beauty_bot) -->
-      <a href="https://t.me/port_beauty_bot" target="_blank" class="vivid-card card-purple">
+      <!-- CARD 1: NEW! AURA ATHLETIC SWEATPANTS E-COMMERCE PLATFORM -->
+      <a href="#catalog" onclick="alert('Открывается демонстрационный кейс AURA Athletic E-Commerce Platform'); return false;" class="vivid-card card-red">
+        <div class="real-image-container">
+          <img src="assets/aura-sweatpants-store.jpg" alt="AURA Athletic Sweatpants E-Commerce Platform" class="real-img-preview">
+        </div>
+        <div class="vivid-card-body">
+          <div class="tags-row">
+            <span class="tag-badge tag-badge-highlight">E-Commerce Platform</span>
+            <span class="tag-badge">Vite &amp; React</span>
+            <span class="tag-badge">Мастер-Админка</span>
+            <span class="tag-badge">Checkout Wizard</span>
+          </div>
+          <div class="vivid-card-title">AURA Athletic — E-Commerce</div>
+          <div class="vivid-card-sub">Премиальная e-commerce платформа спортивных штанов с мульти-галереей 12 фото, панелью администратора, кастомными плашками и 4-шаговой симуляцией оплаты.</div>
+        </div>
+        <div class="vivid-card-footer">
+          <span style="font-size: 13px; color: var(--text-dim);">AURA Sweatpants Platform</span>
+          <div class="card-arrow-action">Смотреть кейс →</div>
+        </div>
+      </a>
+
+      <!-- CARD 2: REAL AURA BEAUTY STUDIO TELEGRAM MINIAPP (@port_beauty_bot) -->
+      <a href="https://t.me/port_beauty_bot" target="_blank" rel="noopener noreferrer" class="vivid-card card-purple">
         <div class="real-image-container">
           <img src="assets/aura-beauty-miniapp-1.jpg" alt="Aura Beauty Studio Telegram MiniApp" class="real-img-preview">
         </div>
-        <div class="vivid-card-footer">
-          <div>
-            <div class="vivid-card-title">Aura Beauty Studio</div>
-            <div class="vivid-card-sub">Telegram MiniApp онлайн-записи (@port_beauty_bot)</div>
+        <div class="vivid-card-body">
+          <div class="tags-row">
+            <span class="tag-badge tag-badge-highlight">Telegram MiniApp</span>
+            <span class="tag-badge">Онлайн-запись</span>
+            <span class="tag-badge">Haptic Feedback</span>
           </div>
+          <div class="vivid-card-title">Aura Beauty Studio</div>
+          <div class="vivid-card-sub">Интерактивный MiniApp онлайн-записи клиентов в бьюти-студию прямо в чате Telegram.</div>
+        </div>
+        <div class="vivid-card-footer">
+          <span style="font-size: 13px; color: var(--text-dim);">@port_beauty_bot</span>
           <div class="card-arrow-action">Открыть бот →</div>
         </div>
       </a>
 
-      <!-- CARD 2: REAL ANONASK BOT 2.1 YUKASSA (@vopros_anon_bot) -->
-      <a href="https://t.me/vopros_anon_bot" target="_blank" class="vivid-card card-green">
+      <!-- CARD 3: REAL ANONASK BOT 2.1 YUKASSA (@vopros_anon_bot) -->
+      <a href="https://t.me/vopros_anon_bot" target="_blank" rel="noopener noreferrer" class="vivid-card card-green">
         <div class="real-image-container">
           <img src="assets/anon-ask-bot.png" alt="AnonAsk Bot 2.1 Telegram Bot" class="real-img-preview">
         </div>
-        <div class="vivid-card-footer">
-          <div>
-            <div class="vivid-card-title">Анонимные вопросы 2.1</div>
-            <div class="vivid-card-sub">Telegram-бот &amp; ЮKassa эквайринг (@vopros_anon_bot)</div>
+        <div class="vivid-card-body">
+          <div class="tags-row">
+            <span class="tag-badge tag-badge-highlight">Telegram Bot</span>
+            <span class="tag-badge">Эквайринг ЮKassa</span>
+            <span class="tag-badge">Подписки</span>
           </div>
+          <div class="vivid-card-title">Анонимные вопросы 2.1</div>
+          <div class="vivid-card-sub">Высоконагруженный Telegram-бот с приёмом платежей, монетизацией и донатами.</div>
+        </div>
+        <div class="vivid-card-footer">
+          <span style="font-size: 13px; color: var(--text-dim);">@vopros_anon_bot</span>
           <div class="card-arrow-action">Открыть бот →</div>
         </div>
       </a>
 
-      <!-- CARD 3: REAL SITE-VISITKA TOMXAOS.RU (LINKS TO BIO DOMAIN) -->
-      <a href="https://bio.tomxaos.ru" target="_blank" class="vivid-card card-blue">
+      <!-- CARD 4: iSEEYOU TELEGRAM BUSINESS BOT (@cather_seeyou_bot) -->
+      <a href="https://t.me/cather_seeyou_bot" target="_blank" rel="noopener noreferrer" class="vivid-card card-purple">
         <div class="real-image-container">
-          <img src="assets/tomxaos-card-site.png" alt="Сайт-визитка tomxaos.ru" class="real-img-preview">
+          <img src="assets/iseeyou-bot.png" alt="iSeeYou Telegram Business Bot" class="real-img-preview">
+        </div>
+        <div class="vivid-card-body">
+          <div class="tags-row">
+            <span class="tag-badge tag-badge-highlight">TG Business API</span>
+            <span class="tag-badge">Перехват удалений</span>
+            <span class="tag-badge">Медиа-архив</span>
+          </div>
+          <div class="vivid-card-title">iSeeYou — Защитник чатов</div>
+          <div class="vivid-card-sub">Моментальный перехват и сохранение удалённых и изменённых сообщений, фото, видео и голосовых заметок в Telegram Business.</div>
         </div>
         <div class="vivid-card-footer">
-          <div>
-            <div class="vivid-card-title">Сайты-визитки &amp; PWA</div>
-            <div class="vivid-card-sub">Сайты-визитки и портфолио с поддержкой PWA (tomxaos.ru)</div>
-          </div>
-          <div class="card-arrow-action">Открыть сайт →</div>
+          <span style="font-size: 13px; color: var(--text-dim);">@cather_seeyou_bot</span>
+          <div class="card-arrow-action">Открыть бот →</div>
         </div>
       </a>
 
-      <!-- CARD 4: VIVID ORANGE - RETAIL ADMIN & AI AUTOMATION -->
-      <a href="https://t.me/tomxaos" target="_blank" class="vivid-card card-orange">
-        <div class="real-image-container">
-          <img src="assets/retail-admin-saas.png" alt="Retail Admin SaaS Platform" class="real-img-preview">
-        </div>
-        <div class="vivid-card-footer">
-          <div>
-            <div class="vivid-card-title">SaaS &amp; ИИ-Автоматизация</div>
-            <div class="vivid-card-sub">Retail Core Admin, ИИ-агенты и бизнес-бэкенд</div>
-          </div>
-          <div class="card-arrow-action">Обсудить →</div>
-        </div>
-      </a>
-
-      <!-- CARD 5: VIVID RED - PRODAVAN SUSHI DIRECT E-COMMERCE -->
-      <a href="https://prodavan-sushi.vercel.app" target="_blank" class="vivid-card card-red">
+      <!-- CARD 5: REAL PRODAVAN SUSHI DIRECT E-COMMERCE -->
+      <a href="https://prodavan-sushi.vercel.app" target="_blank" rel="noopener noreferrer" class="vivid-card card-red">
         <div class="real-image-container">
           <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=1000&auto=format&fit=crop" alt="Продаван Суши Интернет-магазин" class="real-img-preview">
         </div>
-        <div class="vivid-card-footer">
-          <div>
-            <div class="vivid-card-title">Продаван Суши</div>
-            <div class="vivid-card-sub">E-Commerce магазин суши без эквайринга &amp; Telegram Bot API</div>
+        <div class="vivid-card-body">
+          <div class="tags-row">
+            <span class="tag-badge tag-badge-highlight">E-Commerce</span>
+            <span class="tag-badge">React &amp; Vite</span>
+            <span class="tag-badge">TG Bot API</span>
           </div>
+          <div class="vivid-card-title">Продаван Суши</div>
+          <div class="vivid-card-sub">Полноценный интернет-магазин доставки суши с корзиной, выбором соусов и оформлением заказа.</div>
+        </div>
+        <div class="vivid-card-footer">
+          <span style="font-size: 13px; color: var(--text-dim);">prodavan-sushi.vercel.app</span>
           <div class="card-arrow-action">Открыть демо →</div>
+        </div>
+      </a>
+
+      <!-- CARD 6: VIVID ORANGE - RETAIL ADMIN & AI AUTOMATION -->
+      <a href="https://t.me/tomxaos" target="_blank" rel="noopener noreferrer" class="vivid-card card-orange">
+        <div class="real-image-container">
+          <img src="assets/retail-admin-saas.png" alt="Retail Admin SaaS Platform" class="real-img-preview">
+        </div>
+        <div class="vivid-card-body">
+          <div class="tags-row">
+            <span class="tag-badge tag-badge-highlight">SaaS &amp; ИИ</span>
+            <span class="tag-badge">Retail Core</span>
+            <span class="tag-badge">Дашборды</span>
+          </div>
+          <div class="vivid-card-title">SaaS &amp; ИИ-Автоматизация</div>
+          <div class="vivid-card-sub">Операционный центр учета смен, Z-отчетов, остатков склада и ИИ-агенты для бизнеса.</div>
+        </div>
+        <div class="vivid-card-footer">
+          <span style="font-size: 13px; color: var(--text-dim);">Retail Core System</span>
+          <div class="card-arrow-action">Обсудить проект →</div>
         </div>
       </a>
 
@@ -140,27 +200,56 @@
   <!-- 4. EXPERTISE SECTION -->
   <section id="expertise" class="expertise-section container">
     <div class="expertise-layout">
-      <h2 class="expertise-h2">Expertise</h2>
+      <h2 class="expertise-h2">Экспертиза</h2>
 
-      <div class="expertise-columns">
+      <div class="expertise-grid">
         <div class="expertise-card-item">
+          <div class="expertise-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+              <circle cx="12" cy="5" r="2"></circle>
+              <path d="M12 7v4"></path>
+              <line x1="8" y1="16" x2="8" y2="16"></line>
+              <line x1="16" y1="16" x2="16" y2="16"></line>
+            </svg>
+          </div>
           <h3 class="expertise-col-h3">Боты &amp; Mini Apps</h3>
-          <p class="expertise-col-desc">Разработка ботов любой сложности, Telegram Mini Apps, WebApps, баз данных и автоматических платежных систем.</p>
+          <p class="expertise-col-desc">Разработка Telegram-ботов любой сложности, WebApp-интерфейсов, баз данных и нативного приема платежей.</p>
         </div>
 
         <div class="expertise-card-item">
+          <div class="expertise-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
           <h3 class="expertise-col-h3">Лендинги &amp; PWA</h3>
-          <p class="expertise-col-desc">Сайты-визитки и интерактивные портфолио с упругими анимациями и поддержкой PWA.</p>
+          <p class="expertise-col-desc">Промо-страницы и интерактивные PWA-визитки с мгновенной загрузкой и плавной анимацией.</p>
         </div>
 
         <div class="expertise-card-item">
+          <div class="expertise-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+          </div>
           <h3 class="expertise-col-h3">SaaS &amp; Бэкенд</h3>
-          <p class="expertise-col-desc">Операционные центры (Retail Core), базы данных, Anti-Delete Guard и автобэкапы серверов.</p>
+          <p class="expertise-col-desc">Облачные панели управления, базы данных PostgreSQL/SQLite, автоматические бэкапы и Anti-Delete системы.</p>
         </div>
 
         <div class="expertise-card-item">
-          <h3 class="expertise-col-h3">ИИ-Агенты &amp; Рутина</h3>
-          <p class="expertise-col-desc">Обучение ИИ-агентов под базы знаний компании и автоматизация рутинных задач бизнеса.</p>
+          <div class="expertise-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <h3 class="expertise-col-h3">Эквайринг &amp; ИИ</h3>
+          <p class="expertise-col-desc">Подключение онлайн-оплаты (СБП, ЮKassa, TG Stars) и интеграция ИИ-агентов под базы знаний компании.</p>
         </div>
       </div>
     </div>
@@ -170,16 +259,16 @@
   <section id="about" class="testimonials-section container">
     <h2 class="testimonials-h2">О проекте tomxaos™ CoreApps</h2>
     <p class="quote-text">
-      «Разработка проектов любого уровня и автоматизация рутинных задач под брендом tomxaos™ CoreApps. Создаю Telegram Mini Apps, ботов любой сложности, сайты-визитки, обучаю ИИ-агентов под документацию компаний и подключаю платежные системы (СБП, ЮKassa).»
+      «Разрабатываю быстрые и практичные цифровые продукты под брендом tomxaos™ CoreApps. Специализируюсь на Telegram Mini Apps, автономных ботах, веб-сервисах и автоматизации бизнес-процессов под ключ.»
     </p>
   </section>
 
   <!-- 6. CTA SECTION -->
   <section id="contact" class="cta-section container">
-    <h2 class="cta-display">Let's talk!</h2>
-    <a href="https://t.me/tomxaos" target="_blank" class="btn-cta">
-      <span>Написать в Telegram (@tomxaos)</span>
-      <span>→</span>
+    <h2 class="cta-display">Обсудим ваш проект?</h2>
+    <a href="https://t.me/tomxaos" target="_blank" rel="noopener noreferrer" class="btn-cta">
+      <span class="cta-desktop-text">Написать в Telegram (@tomxaos) →</span>
+      <span class="cta-mobile-text">Написать в Telegram →</span>
     </a>
   </section>
 
@@ -190,13 +279,13 @@
         <div>© 2026 tomxaos™ CoreApps. Все права защищены.</div>
         <div class="footer-icons-group">
           <!-- Telegram Icon -->
-          <a href="https://t.me/tomxaos" target="_blank" class="footer-icon-link" aria-label="Telegram">
+          <a href="https://t.me/tomxaos" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="Telegram">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .54-1.43.53-.47-.01-1.38-.27-2.05-.49-.83-.27-1.49-.42-1.43-.88.03-.24.37-.49 1.02-.74 3.98-1.73 6.64-2.87 7.97-3.43 3.8-1.58 4.59-1.86 5.1-1.87.11 0 .36.03.52.17.13.12.17.28.19.45-.01.07.01.24 0 .39z"/>
             </svg>
           </a>
           <!-- Instagram Icon -->
-          <a href="https://instagram.com/danya.bolotin" target="_blank" class="footer-icon-link" aria-label="Instagram">
+          <a href="https://instagram.com/danya.bolotin" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="Instagram">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>

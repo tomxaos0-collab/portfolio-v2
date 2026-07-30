@@ -1,13 +1,13 @@
 // =========================================================
-// JOEY PORTFOLIO - MODERN INTERACTIVE ANIMATIONS & SCROLL OBSERVER
+// tomxaos™ CoreApps — Interactive Scroll Observer & Micro-animations
 // =========================================================
 
 document.addEventListener('DOMContentLoaded', () => {
   
-  // 1. INTERSECTION OBSERVER FOR FADE-IN SCROLL ANIMATIONS
+  // 1. INTERSECTION OBSERVER FOR FADE-IN SCROLL REVEALS
   const observerOptions = {
     root: null,
-    rootMargin: '0px 0px -60px 0px',
+    rootMargin: '0px 0px -40px 0px',
     threshold: 0.1
   };
 
@@ -20,16 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, observerOptions);
 
-  // Target elements to animate on scroll
   const animatedElements = document.querySelectorAll(
-    '.vivid-card, .expertise-card-item, .testimonials-section, .cta-section, .hero-display, .hero-side-content'
+    '.vivid-card, .expertise-card-item, .testimonials-section, .cta-section, .hero-display, .hero-grid'
   );
 
   animatedElements.forEach((el, index) => {
     el.classList.add('animate-on-scroll');
-    // Stagger animation delays for grid items
     if (el.classList.contains('vivid-card') || el.classList.contains('expertise-card-item')) {
-      const staggerDelay = (index % 2) * 0.12;
+      const staggerDelay = (index % 2) * 0.08;
       el.style.transitionDelay = `${staggerDelay}s`;
     }
     scrollObserver.observe(el);
@@ -52,27 +50,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. CARD TILT / GLOW PARALLAX EFFECT ON HOVER (DESKTOP)
-  const cards = document.querySelectorAll('.vivid-card');
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      if (window.innerWidth < 800) return; // Only on desktop
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = ((y - centerY) / centerY) * -4;
-      const rotateY = ((x - centerX) / centerX) * 4;
-      
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-    });
+  // 3. SUBTLE DESKTOP PARALLAX TILT EFFECT
+  const isTouchDevice = window.matchMedia('(hover: none)').matches;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+  if (!isTouchDevice && !prefersReducedMotion) {
+    const cards = document.querySelectorAll('.vivid-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = ((y - centerY) / centerY) * -2.5;
+        const rotateY = ((x - centerX) / centerX) * 2.5;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
     });
-  });
+  }
 
 });
