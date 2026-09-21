@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РАКАМАКАФО × SUBZERO — Pitch Deck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-stage: #050505;
+            --slide-bg: #0C0C0C;
+            --slide-surface: #141414;
+            --slide-card: #1A1A1A;
+            --text-main: #FFFFFF;
+            --text-muted: #8E8E8E;
+            --text-subtle: #5A5A5A;
+            --accent-red: #FF3B1E;
+            --accent-orange: #F26422;
+            --accent-gold: #D4AF37;
+            --border-line: rgba(255, 255, 255, 0.1);
+            --ease-deck: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html, body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: var(--bg-stage);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 16:9 Presentation Stage */
+        .stage-wrapper {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Scalable 16:9 Slide Canvas */
+        .slide-canvas {
+            position: relative;
+            width: 1920px;
+            height: 1080px;
+            background: var(--slide-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 59, 30, 0.08);
+            overflow: hidden;
+            transform-origin: center center;
+            flex-shrink: 0;
+        }
+
+        /* Slide Viewport */
+        .slide-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 80px 100px 90px 100px;
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            background: var(--slide-bg);
+            opacity: 0;
+            transform: scale(0.98);
+            transition: opacity 0.4s var(--ease-deck), transform 0.4s var(--ease-deck);
+        }
+
+        .slide-frame.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Header on every slide */
+        .deck-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-line);
+            padding-bottom: 24px;
+        }
+
+        .deck-brand-pill {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .deck-brand-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .deck-collab-tag {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            padding-left: 16px;
+            border-left: 1px solid var(--border-line);
+        }
+
+        .deck-slide-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-red);
+            text-transform: uppercase;
+        }
+
+        /* Slide Content Bodies */
+        .deck-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 0;
+        }
+
+        .slide-headline {
+            font-family: 'Syne', sans-serif;
+            font-size: 56px;
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -1.5px;
+            text-transform: uppercase;
+            margin-bottom: 36px;
+        }
+
+        .slide-grid-2col {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .slide-grid-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        /* Bento Cards */
+        .bento-box {
+            background: var(--slide-surface);
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            padding: 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bento-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--accent-red);
+            margin-bottom: 16px;
+        }
+
+        .bento-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            line-height: 1.15;
+        }
+
+        .bento-desc {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        /* Feature List */
+        .feature-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .feature-bullets li {
+            font-size: 22px;
+            line-height: 1.5;
+            color: #d8d8d8;
+            position: relative;
+            padding-left: 36px;
+        }
+
+        .feature-bullets li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-red);
+            border-radius: 50%;
+        }
+
+        .feature-bullets li strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* Media Frame */
+        .deck-media-frame {
+            width: 100%;
+            height: 480px;
+            background: var(--slide-surface);
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .deck-media-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* SLIDE 01: COVER SPECIFICS */
+        .cover-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            align-items: center;
+            height: 100%;
+        }
+
+        .cover-badge-img {
+            max-width: 480px;
+            width: 100%;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8));
+            transform: rotate(-3deg);
+            transition: transform 0.5s var(--ease-deck);
+        }
+
+        .cover-badge-img:hover {
+            transform: rotate(0deg) scale(1.03);
+        }
+
+        .cover-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 88px;
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -3px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .cover-slogan {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--accent-orange);
+            text-transform: uppercase;
+            margin-bottom: 36px;
+        }
+
+        .cover-tags {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .tag-pill {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 10px 22px;
+            border: 1px solid var(--border-line);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 100px;
+        }
+
+        .tag-pill.gold {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Footer on every slide */
+        .deck-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-line);
+            padding-top: 20px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-subtle);
+        }
+
+        /* Operations Split Cards */
+        .op-split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .op-side-card {
+            background: var(--slide-surface);
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            padding: 44px;
+        }
+
+        .op-side-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Menu Board Layout */
+        .menu-split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .menu-board-card {
+            background: var(--slide-surface);
+            border: 1px solid var(--border-line);
+            border-radius: 12px;
+            padding: 24px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .menu-board-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-line);
+        }
+
+        .menu-board-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-item-row {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            padding-bottom: 9px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.07);
+        }
+
+        .menu-item-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .menu-item-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-item-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 17px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .menu-item-badge {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 2px 7px;
+            border-radius: 4px;
+            background: rgba(255, 59, 30, 0.15);
+            color: var(--accent-red);
+            border: 1px solid rgba(255, 59, 30, 0.3);
+        }
+
+        .menu-item-badge.gold {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--accent-gold);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .menu-item-badge.muted {
+            background: rgba(255, 255, 255, 0.08);
+            color: #d0d0d0;
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .menu-item-desc {
+            font-size: 13.5px;
+            line-height: 1.4;
+            color: var(--text-muted);
+        }
+
+        /* 3x3 Bento Food Gallery Layout */
+        .bento-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 195px);
+            gap: 18px;
+            width: 100%;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-line);
+            background: var(--slide-surface);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
+        }
+
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.06);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 30%, rgba(10, 10, 10, 0.88) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 14px 18px;
+            pointer-events: none;
+            transition: background 0.3s ease;
+        }
+
+        .gallery-card:hover .gallery-overlay {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 20%, rgba(10, 10, 10, 0.94) 100%);
+        }
+
+        .gallery-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .gallery-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-red);
+            background: rgba(255, 59, 30, 0.15);
+            border: 1px solid rgba(255, 59, 30, 0.35);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* UI Floating Player Controls */
+        .player-bar {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(14, 14, 14, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 100px;
+            padding: 8px 18px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 999;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .player-btn {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .player-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .player-btn.active-btn {
+            background: var(--accent-red);
+        }
+
+        .player-counter {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            padding: 0 8px;
+        }
+
+        /* Overview Overlay (O) */
+        .overview-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 60px 80px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .overview-overlay.active {
+            display: block;
+        }
+
+        .ov-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .ov-grid-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .ov-slide-card {
+            background: #141414;
+            border: 1px solid var(--border-line);
+            border-radius: 8px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            aspect-ratio: 16/9;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .ov-slide-card:hover {
+            border-color: var(--accent-red);
+            transform: translateY(-4px);
+            background: #1c1c1c;
+        }
+
+        .ov-slide-card.active-card {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* PRINT STYLES FOR PDF EXPORT */
+        @media print {
+            body, html {
+                background: #000000 !important;
+                color: #ffffff !important;
+                width: 100% !important;
+                height: auto !important;
+                overflow: visible !important;
+            }
+            .player-bar, .overview-overlay {
+                display: none !important;
+            }
+            .stage-wrapper {
+                width: 100% !important;
+                height: auto !important;
+                display: block !important;
+            }
+            .slide-canvas {
+                width: 100% !important;
+                height: auto !important;
+                transform: none !important;
+                border: none !important;
+                box-shadow: none !important;
+            }
+            .slide-frame {
+                position: relative !important;
+                display: flex !important;
+                opacity: 1 !important;
+                transform: none !important;
+                page-break-after: always !important;
+                width: 100% !important;
+                height: 100vh !important;
+                padding: 40px 60px !important;
+                background: #000000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stage-wrapper" id="stageWrapper">
+        <div class="slide-canvas" id="slideCanvas">
+
+            <!-- SLIDE 01: COVER -->
+            <div class="slide-frame active" data-slide="1">
+                <div class="deck-header">
+                    <div class="deck-brand-pill">
+                        <span class="deck-brand-name">РАКАМАКАФО</span>
+                        <span class="deck-collab-tag">× SUBZERO MOSCOW</span>
+                    </div>
+                    <div class="deck-slide-num">SLIDE 01 / 12</div>
+                </div>
+
+                <div class="deck-content">
+                    <div class="cover-layout">
+                        <div>
+                            <h1 class="cover-title">РАКАМАКАФО</h1>
+                            <div class="cover-slogan">«Раки. Вкус. Эмоции.»</div>
+                            <p style="font-size: 22px; color: #9E9E9E; line-height: 1.6; margin-bottom: 36px; max-width: 680px;">
+                                Первый в Москве гастро проект варки раков на современный лад и собственная система УЗВ в коллаборации с флагманским рестораном Subzero.
+                            </p>
+                            <div class="cover-tags">
+                                <span class="tag-pill">Crayfish & Fusion Bistro</span>
+                                <span class="tag-pill gold">Петровка, 30/7</span>
+                                <span class="tag-pill">Партнерский Pitch Deck</span>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center;">
+                            <img src="./assets/logo_transparent.png" alt="РАКАМАКАФО Логотип" class="cover-badge-img">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deck-footer">
+                    <div>PITCH DECK 2026</div>
+                    <div>CONFIDENTIAL • FOR PARTNERS ONLY</div>
+                </div>
+            </div>
+
+            <!-- SLIDE 02: PRODUCT PHILOSOPHY -->
+            <div class="slide-frame" data-slide="2">
+                <div class="deck-header">
+                    <div class="deck-brand-pill">
+                        <span class="deck-brand-name">РАКАМАКАФО</span>
+                        <span class="deck-collab-tag">01 • ПРОДУКТ & ФИЛОСОФИЯ</span>
+                    </div>
+                    <div class="deck-slide-num">SLIDE 02 / 12</div>
+                </div>
+
+                <div class="deck-content">
+                    <h2 class="slide-headline">Только Живой Продукт</h2>
+                    <div class="slide-grid-2col">
+                        <ul class="feature-bullets">
+                            <li><strong>0% заморозки</strong>: варка запускается исключительно из-под ножа под поступивший заказ.</li>
+                            <li><strong>Собственная система УЗВ на кухне</strong>: аквариумы с контролируемой проточной чистой водой.</li>
+                            <li><strong>Авторские рецептуры варки</strong>: классика на светлом сусле, сливочно-чесночный фьюжн и экстремальный Buldak.</li>
+                        </ul>
+                        <div class="deck-media-frame" style="background: #fbf9f5; display: flex; align-items: center; justify-content: center; padding: 24px;">
+                            <img src="./assets/лого.jpg" alt="РАКАМАКАФО" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deck-footer">
+                    <div>РАКАМАКАФО × SUBZERO</div>
+                    <div>СТАНДАРТ КАЧЕСТВА УЗВ</div>
+                </div>
+            </div>
+
+            <!-- SLIDE 03: BRAND PACKAGING -->
+            <div class="slide-frame" data-slide="3">
+                <div class="deck-header">
+                    <div class="deck-brand-pill">
+                        <span class="deck-brand-name">РАКАМАКАФО</span>
+                        <span class="deck-collab-tag">02 • ЭСТЕТИКА & УПАКОВКА</span>
+                    </div>
+                    <div class="deck-slide-num">SLIDE 03 / 12</div>
+                </div>
+
+                <div class="deck-content">
+                    <h2 class="slide-headline">Дизайн Уровня Subzero</h2>
+                    <div class="slide-grid-2col">
+                        <ul class="feature-bullets">
+                            <li><strong>Фирменная подача</strong>: матовые черные боксы, щедрая сервировка свежей зеленью и дольками лайма.</li>
+                            <li><strong>Термо-шопперы под бани и доставку</strong>: защита температуры и брендированная контрольная пломба.</li>
+                            <li><strong>Персональный набор гостя</strong>: крафтовые фартуки, матовые соусники и влажные салфетки.</li>
+                        </ul>
+                        <div class="deck-media-frame">
+                            <img src="./assets/rakamakafo_cocktail_combo.jpg" alt="Фирменная упаковка и комбо-подача">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deck-footer">
+                    <div>РАКАМАКАФО × SUBZERO</div>
+                    <div>БРЕНДИНГ & FAST-CASUAL УПАКОВКА</div>
+                </div>
+            </div>
+
+            <!-- SLIDE 04: BUSINESS MODEL -->
+            <div class="slide-frame" data-slide="4">
+                <div class="deck-header">
+                    <div class="deck-brand-pill">
+                        <span class="deck-brand-name">РАКАМАКАФО</span>
+                        <span class="deck-collab-tag">03 • ЛОКАЦИЯ & АУДИТОРИЯ</span>
+                    </div>
+                    <div class="deck-slide-num">SLIDE 04 / 12</div>
+                </div>
+
+                <div class="deck-content">
+                    <h2 class="slide-headline">Рыночное Позиционирование</h2>
+                    <div class="slide-grid-3col">
+                        <div class="bento-box">
+                            <div class="bento-num">01 / ЛОКАЦИЯ</div>
+                            <div class="bento-title">Петровка 30/7</div>
+                            <p class="bento-desc">Премиальный трафик центра Москвы с минимальной конкуренцией по качественной варке раков.</p>
+                        </div>
+                        <div class="bento-box">
+                            <div class="bento-num">02 / СТРАТЕГИЯ</div>
+                            <div class="bento-title">Сеты в Бани</div>
+                            <p class="bento-desc">Концентрация элитных банных комплексов вокруг — готовая горячая аудитория с чеком 10 000+ ₽.</p>
+                        </div>
+                        <div class="bento-box">
+                            <div class="bento-num">03 / ДОСТАВКА</div>
+                            <div class="bento-title">Доставка</div>
+                            <p class="bento-desc">Доставка горячих раков и сетов в фирменных термо-шопперах с сохранением температуры.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deck-footer">
+                    <div>РАКАМАКАФО × SUBZERO</div>
+                    <div>БИЗНЕС-МОДЕЛЬ & ТРАФИК</div>
+                </div>
+            </div>
+
+            <!-- SLIDE 05: SYNERGY -->
+            <div class="slide-frame" data-slide="5">
+                <div class="deck-header">
+                    <div class="deck-brand-pill">
+                        <span class="deck-brand-name">РАКАМАКАФО</span>
+                        <span class="deck-collab-tag">04 • СИНЕРГИЯ С SUBZERO</span>
+                    </div>
+                    <div class="deck-slide-num">SLIDE 05 / 12</div>
+                </div>
+
+                <div class="deck-content">
+                    <h2 class="slide-headline">Взаимная Монетизация</h2>
+                    <div class="slide-grid-2col">
+                        <ul class="feature-bullets">
+                            <li><strong>Монетизация площади</strong>: запуск готового подвального этажа как источника постоянной прибыли или аренды.</li>
+                            <li><strong>Кросс-маркетинг чеков</strong>: доставка наших раков вместе с напитками и позициями из меню Subzero.</li>
+                            <li><strong>Юридическая чистота</strong>: реализация алкоголя полностью через действующую лицензию Subzero.</li>
+                        </ul>
+                        <div class="deck-media-frame">
+                            <img src="./assets/subzero_synergy_brand.png" alt="Бренд Subzero">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deck-footer">
+                    <div>РАКАМАКАФО × SUBZERO</div>
+                    <div>СИНЕРГИЯ БИЗНЕС-ПРОЦЕССОВ</div>
+                </div>
+            </div>
+
+            <!-- SLIDE 06: COMBINED MENU -->
+            <div class="slide-frame" data-slide="6">
+                <div class="deck-header">
+                    <div class="deck-brand-pill">
+                        <span class="deck-brand-name">РАКАМАКАФО</span>
+                        <span class="deck-collab-tag">05 • МЕНЮ × SUBZERO</span>
+                    </div>
+                    <div class="deck-slide-num">SLIDE 06 / 12</div>
+                </div>
+
+                <div class="deck-content">
+                    <h2 class="slide-headline" style="margin-bottom: 24px;">Меню × Subzero</h2>
+                    <div class="menu-split-grid">
+                        
+                        <!-- Col 1: Items 01 - 05 -->
+                        <div class="menu-board-card">
+                            <div class="menu-item-row">
+                                <div class="menu-item-head">
+                                    <span class="menu-item-name"><span style="color: var(--accent-red); margin-right: 10px; font-family: 'Space Grotesk';">01</span>Натто бобы</span>
+                                </div>
+                                <div class="menu-item-desc">Традиционная японская закуска из ферментированных бобов с раковым маслом, шисо и соусом понзу.</div>
+                            </div>
+
+                            <div class="menu-item-row">
+                                <div class="menu-item-head">
+                                    <span class="menu-item-name"><span style="color: var(--accent-red); margin-right: 10px; font-family: 'Space Grotesk';">02</span>Суши</span>
+                                </div>
+                                <div class="menu-item-desc">Авторские нигири с сочными раковыми шейками, соусом унаги, каплей цитрусового юдзу и листом шисо.</div>
+                            </div>
+
+                            <div class="menu-item-row">
+                                <div class="menu-item-head">
+                                    <span class="menu-item-name"><span style="color: var(--accent-red); margin-right: 10px; font-family: 'Space Grotesk';">03</span>Subzero × РАКАМАКАФО ролл</span>
+                                </div>
+                                <div class="menu-item-desc">Флагманский ролл с чистым мясом рака, спелым авокадо, хрустящим огурцом и микрозеленью Subzero.</div>
+                            </div>
+
+                            <div class="menu-item-row">
+                                <div class="menu-item-head">
+                                    <span class="menu-item-name"><span style="color: var(--accent-red); margin-right: 10px; font-family: 'Space Grotesk';">04</span>Рак Buldak (Гипер остро!!)</span>
+                                </div>
+                                <div class="menu-item-desc">Экстремально острая азиатская варка с жгучим корейским перцем кочукару, соусом Buldak и кунжутом.</div>
+                            </div>
+
+                            <div class="menu-item-row">
+                                <div class="menu-item-head">
+                                    <span class="menu-item-name"><span style="color: var(--accent-red); margin-right: 10px; font-family: 'Space Grotesk';">05</span>Попкорн из раков в темпуре</span>
+                                </div>
+                                <div class="menu-item-desc">Нежные раковые шейки в хрустящей японской темпуре под пикантным спайси-майо соусом.</div>
+                            </div>
+                        </div>
+
+                        <!-- Col 2: Items 06 - 10 -->
+                        <div class="menu-board-card">
+                            <div class="menu-item-row">
+                                <div class="menu-item-head">
+                                    <span class="menu-item-name"><span style="color: var(--accent-red); margin-right: 10px; font-family: 'Space Grotesk';">06</span>Кацу-Сандо</span>
+                                </div>
+                                <div class="menu-item-desc">Премиальный японский сэндвич на молочном бриоше с хрустящей котлетой из ракового мяса и соусом тонкацу.</div>
+                            </div>
+
+                            <div class="menu-item-row">
+                                <div class="menu-item-head">
+                                    <span class="menu-item-name"><span style="color: var(--accent-red); margin-right: 10px; font-family: 'Space Grotesk';">07</span>Криспи-Райс</span>
+                                </div>
+                                <div class="menu-item-desc">Обжаренные хрустящие рисовые кубики с тартаром из сочных раковых шеек и трюфельным айоли.</div>
+                            </div>
+
+                            <div class="menu-item-row">
+                                <div class="menu-item-head">
+                                    <span class="menu-item-name"><span style="color: var(--accent-red); margin-right: 10px; font-family: 'Space Grotesk';">08</span>Яки Раки</span>
+                                </div>
+                                <div class="menu-item-desc">Томленые на японском гриле робата раки в карамельной глазури терияки-понзу с чесночным маслом.</div>
+                            </div>
+
+                            <div class="menu-item-row">
+                                <div class="menu-item-head">
+                                    <span class="menu-item-name"><span style="color: var(--accent-red); margin-right: 10px; font-family: 'Space Grotesk';">09</span>Fatality (1 / 2 / 3 кг)</span>
+                                </div>
+                                <div class="menu-item-desc">Монументальная порция отборных раков в фирменном пряном соусе с кукурузой гриль и чесночным маслом.</div>
+                            </div>
+
+                            <div class="menu-item-row">
+                                <div class="menu-item-head">
+                                    <span class="menu-item-name"><span style="color: var(--accent-red); margin-right: 10px; font-family: 'Space Grotesk';">10</span>Secret (?) (рыбка булочка)</span>
+                                </div>
+                                <div class="menu-item-desc">Секретная позиция меню: японская вафля-тайяки с нежным раковым крем-чизом, юдзу и красной икрой.</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="deck-footer">
+                    <div>РАКАМАКАФО × SUBZERO</div>
+                    <div>ЕДИНАЯ ЛИНЕЙКА КОЛЛАБОРАЦИИ • 10 ПОЗИЦИЙ</div>
+                </div>
+            </div>
+
+            <!-- SLIDE 07: DISHES VISUAL SHOWCASE -->
+            <div class="slide-frame" data-slide="7">
+                <div class="deck-header">
+                    <div class="deck-brand-pill">
+                        <span class="deck-brand-name">РАКАМАКАФО</span>
+                        <span class="deck-collab-tag">06 • ПОДАЧА & СЕРВИРОВКА</span>
+                    </div>
+                    <div class="deck-slide-num">SLIDE 07 / 12</div>
+                </div>
+
+                <div class="deck-content">
+                    <h2 class="slide-headline" style="margin-bottom: 20px;">Визуализация Блюд</h2>
+                    <div class="bento-gallery-grid">
+                        
+                        <div class="gallery-card">
+                            <img src="./assets/меню/photo_1_2026-08-31_19-48-39.jpg" alt="Натто бобы" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-label">
+                                    <span class="gallery-num">01</span>
+                                    <span>Натто бобы</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-card">
+                            <img src="./assets/меню/photo_2_2026-08-31_19-48-39.jpg" alt="Subzero x РАКАМАКАФО ролл" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-label">
+                                    <span class="gallery-num">02</span>
+                                    <span>Subzero × РАКАМАКАФО ролл</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-card">
+                            <img src="./assets/меню/photo_3_2026-08-31_19-48-39.jpg" alt="Суши Нигири" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-label">
+                                    <span class="gallery-num">03</span>
+                                    <span>Суши Нигири</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-card">
+                            <img src="./assets/меню/photo_4_2026-08-31_19-48-39.jpg" alt="Special Ролл Subzero" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-label">
+                                    <span class="gallery-num">04</span>
+                                    <span>Subzero Special Ролл</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-card">
+                            <img src="./assets/меню/photo_5_2026-08-31_19-48-39.jpg" alt="Попкорн из раков в темпуре" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-label">
+                                    <span class="gallery-num">05</span>
+                                    <span>Раки в темпуре</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-card">
+                            <img src="./assets/меню/photo_6_2026-08-31_19-48-39.jpg" alt="Рак Buldak" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-label">
+                                    <span class="gallery-num">06</span>
+                                    <span>Рак Buldak (Гипер Остро)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-card">
+                            <img src="./assets/меню/photo_7_2026-08-31_19-48-39.jpg" alt="Кацу-Сандо Фьюжн" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-label">
+                                    <span class="gallery-num">07</span>
+                                    <span>Кацу-Сандо (Фьюжн)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-card">
+                            <img src="./assets/меню/photo_8_2026-08-31_19-48-39.jpg" alt="Кацу-Сандо Криспи" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-label">
+                                    <span class="gallery-num">08</span>
+                                    <span>Кацу-Сандо (Криспи)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-card">
+                            <img src="./assets/меню/photo_9_2026-08-31_19-48-39.jpg" alt="Яки Раки" class="gallery-img">
+                            <div class="gallery-overlay">
+                                <div class="gallery-label">
+                                    <span class="gallery-num">09</span>
+                                    <span>Яки Раки (Робата)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="deck-footer">
+                    <div>РАКАМАКАФО × SUBZERO</div>
+                    <div>ВИЗУАЛЬНЫЙ ЛУКБУК • 9 АВТОРСКИХ ПОДАЧ</div>
+                </div>
+            </div>
+
+            <!-- SLIDE 08: BEER BRAND -->
+            <div class="slide-frame" data-slide="8">
+                <div class="deck-header">
+                    <div class="deck-brand-pill">
+                        <span class="deck-brand-name">РАКАМАКАФО</span>
+                        <span class="deck-collab-tag">07 • БАР & ПЕЙРИНГ</span>
+                    </div>
+                    <div class="deck-slide-num">SLIDE 08 / 12</div>
+                </div>
+
+                <div class="deck-content">
+                    <h2 class="slide-headline">Контрактное Пиво</h2>
+                    <div class="slide-grid-3col">
+                        <div class="bento-box">
+                            <div class="bento-num">01 / КЛАССИКА</div>
+                            <div class="bento-title">Crisp Lager 4.8%</div>
+                            <p class="bento-desc">Сухой хрустящий лагер, сваренный технологами под пряный укропный отвар.</p>
+                        </div>
+                        <div class="bento-box">
+                            <div class="bento-num">02 / ЦИТРУС</div>
+                            <div class="bento-title">Yuzu Blanche 5.2%</div>
+                            <p class="bento-desc">Освежающий пшеничный эль с натуральным соком японского цитруса юдзу.</p>
+                        </div>
+                        <div class="bento-box">
+                            <div class="bento-num">03 / СПАЙСИ</div>
+                            <div class="bento-title">Tomato Gose 4.5%</div>
+                            <p class="bento-desc">Томатный гозе с копченой паприкой и укропным рассолом для идеального пейринга.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deck-footer">
+                    <div>РАКАМАКАФО × SUBZERO</div>
+                    <div>БАРНАЯ КАРТА & ПЕЙРИНГ</div>
+                </div>
+            </div>
+
+            <!-- SLIDE 09: OPERATIONS -->
+            <div class="slide-frame" data-slide="9">
+                <div class="deck-header">
+                    <div class="deck-brand-pill">
+                        <span class="deck-brand-name">РАКАМАКАФО</span>
+                        <span class="deck-collab-tag">08 • ОПЕРАЦИОНКА</span>
+                    </div>
+                    <div class="deck-slide-num">SLIDE 09 / 12</div>
+                </div>
+
+                <div class="deck-content">
+                    <h2 class="slide-headline">Разделение Процессов</h2>
+                    <div class="op-split-grid">
+                        <div class="op-side-card">
+                            <div class="op-side-title" style="color: var(--accent-red);">🔴 Зона РАКАМАКАФО</div>
+                            <ul class="feature-bullets" style="gap:18px;">
+                                <li>2 повара и 1 сборщик заказов на смене.</li>
+                                <li>Полный цикл готовки, уход за УЗВ и варка.</li>
+                                <li>Упаковка заказов на доставку и выдачу в зал.</li>
+                            </ul>
+                        </div>
+                        <div class="op-side-card">
+                            <div class="op-side-title" style="color: var(--accent-gold);">⚪ Зона Subzero</div>
+                            <ul class="feature-bullets" style="gap:18px;">
+                                <li>Официанты зала, барная стойка и сервис посадки.</li>
+                                <li>Автономная работа: 0 нагрузки на ваши кухонные мощности.</li>
+                                <li>Проведение оплат через действующий кассовый узел.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deck-footer">
+                    <div>РАКАМАКАФО × SUBZERO</div>
+                    <div>КОМАНДА & ОПЕРАЦИОННОЕ ДЕЛЕНИЕ</div>
+                </div>
+            </div>
+
+            <!-- SLIDE 10: PASS-THROUGH WINDOW -->
+            <div class="slide-frame" data-slide="10">
+                <div class="deck-header">
+                    <div class="deck-brand-pill">
+                        <span class="deck-brand-name">РАКАМАКАФО</span>
+                        <span class="deck-collab-tag">09 • ВЫДАЧА В ЗАЛ</span>
+                    </div>
+                    <div class="deck-slide-num">SLIDE 10 / 12</div>
+                </div>
+
+                <div class="deck-content">
+                    <h2 class="slide-headline">Бесшовная Интеграция</h2>
+                    <div class="slide-grid-2col">
+                        <ul class="feature-bullets">
+                            <li><strong>Изолированная станция передачи</strong>: официанты не спускаются в производственный цех подвала.</li>
+                            <li><strong>Идеальная чистота зала</strong>: все запахи и технологические процессы герметично изолированы.</li>
+                            <li><strong>Скорость выдачи — 3 секунды</strong>: официант забирает упакованный поднос прямо из передаточного окна.</li>
+                        </ul>
+                        <div class="deck-media-frame">
+                            <img src="./assets/subzero_craft_packaging_1787158833674.jpg" alt="Выдача">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deck-footer">
+                    <div>РАКАМАКАФО × SUBZERO</div>
+                    <div>СТАНЦИЯ ВЫДАЧИ & СЕРВИС</div>
+                </div>
+            </div>
+
+            <!-- SLIDE 11: LOGISTICS -->
+            <div class="slide-frame" data-slide="11">
+                <div class="deck-header">
+                    <div class="deck-brand-pill">
+                        <span class="deck-brand-name">РАКАМАКАФО</span>
+                        <span class="deck-collab-tag">10 • ЛОГИСТИКА</span>
+                    </div>
+                    <div class="deck-slide-num">SLIDE 11 / 12</div>
+                </div>
+
+                <div class="deck-content">
+                    <h2 class="slide-headline">Доставка и Тайминг</h2>
+                    <div class="slide-grid-2col">
+                        <ul class="feature-bullets">
+                            <li><strong>Собственные курьеры</strong> на электробайках + интеграция с Яндекс Доставкой.</li>
+                            <li><strong>Жесткий тайминг доставки</strong> по ЦАО и 6 ключевым банным комплексам (до 35 минут).</li>
+                            <li><strong>Контроль температуры</strong>: раки доезжают обжигающе горячими, а пиво — ледяным.</li>
+                        </ul>
+                        <div class="deck-media-frame">
+                            <img src="./assets/packaging_asian_street_combo_1787589770385.jpg" alt="Логистика">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deck-footer">
+                    <div>РАКАМАКАФО × SUBZERO</div>
+                    <div>ЛОГИСТИКА & ТАЙМИНГ ДОСТАВКИ</div>
+                </div>
+            </div>
+
+            <!-- SLIDE 12: ROADMAP -->
+            <div class="slide-frame" data-slide="12">
+                <div class="deck-header">
+                    <div class="deck-brand-pill">
+                        <span class="deck-brand-name">РАКАМАКАФО</span>
+                        <span class="deck-collab-tag">11 • СЛЕДУЮЩИЕ ШАГИ</span>
+                    </div>
+                    <div class="deck-slide-num">SLIDE 12 / 12</div>
+                </div>
+
+                <div class="deck-content">
+                    <h2 class="slide-headline">Финансы и Старт</h2>
+                    <div class="slide-grid-3col">
+                        <div class="bento-box">
+                            <div class="bento-num">ШАГ 01</div>
+                            <div class="bento-title">Модель Сотрудничества</div>
+                            <p class="bento-desc">Согласование условий (фиксированная ставка аренды подвала или сплит чистой прибыли 70/30).</p>
+                        </div>
+                        <div class="bento-box">
+                            <div class="bento-num">ШАГ 02</div>
+                            <div class="bento-title">Дегустация Шефов</div>
+                            <p class="bento-desc">Утверждение совместной коллаб-линейки и тест пейринга с бренд-шефом Subzero.</p>
+                        </div>
+                        <div class="bento-box">
+                            <div class="bento-num">ШАГ 03</div>
+                            <div class="bento-title">Монтаж УЗВ</div>
+                            <p class="bento-desc">Установка стоек с проточными аквариумами и запуск кухни на Петровке 30/7.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deck-footer">
+                    <div>РАКАМАКАФО × SUBZERO</div>
+                    <div>ДОРОЖНАЯ КАРТА ЗАПУСКА</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Floating Keynote Player Controls -->
+    <div class="player-bar">
+        <button class="player-btn" onclick="prevSlide()" title="Предыдущий слайд (←)">←</button>
+        <div class="player-counter" id="counterBadge">01 / 12</div>
+        <button class="player-btn" onclick="nextSlide()" title="Следующий слайд (→)">→</button>
+        <button class="player-btn" onclick="toggleOverview()" title="Сетка слайдов (O)">▦ Сетка</button>
+        <button class="player-btn" onclick="toggleFullscreen()" title="Полноэкранный режим (F)">⛶ Экран</button>
+        <button class="player-btn active-btn" onclick="window.print()" title="Печать всего Pitch Deck в PDF">PDF</button>
+    </div>
+
+    <!-- Overview Mode Modal (O) -->
+    <div class="overview-overlay" id="overviewOverlay">
+        <div class="ov-header">
+            <h2 style="font-family:'Syne'; font-size:32px; text-transform:uppercase;">ВСЕ СЛАЙДЫ ПРЕЗЕНТАЦИИ (12)</h2>
+            <button class="player-btn active-btn" onclick="toggleOverview()">✕ Закрыть</button>
+        </div>
+        <div class="ov-grid-cards" id="ovCards"></div>
+    </div>
+
+    <script>
+        const slideNames = [
+            "01 • Титульный (Знакомство)",
+            "02 • Только Живой Продукт",
+            "03 • Дизайн и Упаковка",
+            "04 • Локация и Аудитория",
+            "05 • Синергия с Subzero",
+            "06 • Меню × Subzero",
+            "07 • Визуализация Блюд",
+            "08 • Контрактное Пиво",
+            "09 • Операционка и Зоны",
+            "10 • Бесшовная Выдача",
+            "11 • Логистика и Тайминг",
+            "12 • Финансы и Старт"
+        ];
+
+        let current = 0;
+        const frames = document.querySelectorAll('.slide-frame');
+        const total = frames.length;
+        const canvas = document.getElementById('slideCanvas');
+        const counter = document.getElementById('counterBadge');
+        const overview = document.getElementById('overviewOverlay');
+        const ovCards = document.getElementById('ovCards');
+
+        // Dynamic 16:9 Canvas Auto-Scaler
+        function resizeCanvas() {
+            const screenW = window.innerWidth;
+            const screenH = window.innerHeight;
+            const targetW = 1920;
+            const targetH = 1080;
+
+            const scale = Math.min((screenW - 20) / targetW, (screenH - 20) / targetH);
+            canvas.style.transform = `scale(${scale})`;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function updateSlide(index) {
+            frames.forEach((f, i) => {
+                f.classList.toggle('active', i === index);
+            });
+            const curStr = String(index + 1).padStart(2, '0');
+            const totStr = String(total).padStart(2, '0');
+            counter.textContent = `${curStr} / ${totStr}`;
+
+            document.querySelectorAll('.ov-slide-card').forEach((c, i) => {
+                c.classList.toggle('active-card', i === index);
+            });
+        }
+
+        function nextSlide() {
+            if (current < total - 1) {
+                current++;
+                updateSlide(current);
+            }
+        }
+
+        function prevSlide() {
+            if (current > 0) {
+                current--;
+                updateSlide(current);
+            }
+        }
+
+        function goToSlide(idx) {
+            if (idx >= 0 && idx < total) {
+                current = idx;
+                updateSlide(current);
+            }
+        }
+
+        function toggleOverview() {
+            overview.classList.toggle('active');
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(e => console.log(e));
+            } else {
+                document.exitFullscreen && document.exitFullscreen();
+            }
+        }
+
+        // Build Overview Cards
+        slideNames.forEach((title, idx) => {
+            const card = document.createElement('div');
+            card.className = `ov-slide-card ${idx === 0 ? 'active-card' : ''}`;
+            card.innerHTML = `
+                <div style="font-family:'Space Grotesk'; font-size:12px; color:var(--accent-red); font-weight:700; letter-spacing:1.5px;">SLIDE ${String(idx+1).padStart(2,'0')}</div>
+                <div style="font-family:'Syne'; font-size:16px; font-weight:800; text-transform:uppercase;">${title}</div>
+                <div style="font-size:11px; color:#666;">Клик для перехода</div>
+            `;
+            card.onclick = () => {
+                goToSlide(idx);
+                toggleOverview();
+            };
+            ovCards.appendChild(card);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                prevSlide();
+            } else if (e.key.toLowerCase() === 'o' || e.key.toLowerCase() === 'щ') {
+                toggleOverview();
+            } else if (e.key.toLowerCase() === 'f' || e.key.toLowerCase() === 'а') {
+                toggleFullscreen();
+            } else if (e.key === 'Home') {
+                goToSlide(0);
+            } else if (e.key === 'End') {
+                goToSlide(total - 1);
+            }
+        });
+
+        // Click sides to navigate
+        document.getElementById('stageWrapper').addEventListener('click', (e) => {
+            if (e.target.closest('.player-bar') || e.target.closest('.overview-overlay')) return;
+            const x = e.clientX;
+            if (x > window.innerWidth * 0.7) nextSlide();
+            else if (x < window.innerWidth * 0.3) prevSlide();
+        });
+    </script>
+</body>
+</html>
