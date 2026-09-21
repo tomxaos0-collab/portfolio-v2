@@ -742,23 +742,84 @@ body {
   }
 
   .btn-header {
-    padding: 5px 12px;
-    font-size: 11px;
-    font-weight: 600;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .hero-section {
+    margin-bottom: 44px;
+    gap: 18px;
   }
 
   .hero-status-bar {
-    padding: 3px 10px;
-    gap: 6px;
+    padding: 4px 12px;
+    gap: 8px;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .status-dot {
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
   }
 
   .status-text {
     font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .hero-display {
+    font-size: clamp(30px, 8.5vw, 46px);
+    line-height: 1.1;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .hero-cta-group {
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .projects-vivid-grid {
+    gap: 20px;
+  }
+
+  .vivid-card-body {
+    padding: 20px 18px 16px 18px;
+    gap: 10px;
+  }
+
+  .vivid-card-title {
+    font-size: 19px;
+  }
+
+  .vivid-card-sub {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+
+  .vivid-card-footer {
+    padding: 14px 18px 18px 18px;
+  }
+
+  .card-actions-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .btn-card-action {
+    justify-content: center;
+    padding: 10px 16px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
   }
 
   .cta-section {
@@ -789,15 +850,29 @@ body {
   }
 
   .testimonials-section {
-    padding: 28px;
+    padding: 24px 18px;
+    margin-bottom: 48px;
+  }
+
+  .testimonials-h2 {
+    font-size: 20px;
+  }
+
+  .quote-text {
+    font-size: 15px;
+  }
+
+  .expertise-section {
+    margin-bottom: 48px;
   }
 
   .expertise-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .real-image-container {
-    height: 220px;
+    height: 200px;
   }
 }
 
@@ -1147,6 +1222,41 @@ body {
   }
   .services-nodes-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-display {
+    font-size: 28px;
+    letter-spacing: -0.02em;
+  }
+
+  .brand-logo {
+    font-size: 14px;
+  }
+
+  .stat-box {
+    padding: 14px 16px;
+  }
+
+  .stat-box-value {
+    font-size: 20px;
+  }
+
+  .service-node {
+    padding: 14px 16px;
+  }
+
+  .service-name {
+    font-size: 14.5px;
+  }
+
+  .service-desc {
+    font-size: 12.5px;
+  }
+
+  .real-image-container {
+    height: 180px;
   }
 }
 
