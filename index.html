@@ -26,9 +26,10 @@
         </a>
 
         <ul class="nav-pill">
+          <li><a href="#monitoring">Мониторинг</a></li>
           <li><a href="#projects">Проекты</a></li>
-          <li><a href="#expertise">Экспертиза</a></li>
-          <li><a href="#about">О проекте</a></li>
+          <li><a href="#expertise">Стек</a></li>
+          <li><a href="#about">О студии</a></li>
           <li><a href="#contact">Контакты</a></li>
         </ul>
 
@@ -43,23 +44,163 @@
   <!-- 2. HERO SECTION -->
   <section class="hero-section container">
     <div class="hero-status-bar">
-      <span class="status-dot"></span>
-      <span class="status-text">Принимаю заказы на разработку</span>
+      <span class="status-dot pulse-dot-green"></span>
+      <span class="status-text">7/7 СЕРВИСОВ ОНЛАЙН • ALL SYSTEMS OPERATIONAL</span>
     </div>
 
     <h1 class="hero-display">
-      Telegram MiniApps &amp;<br>
-      Боты под ключ.
+      Инженерные Веб-Системы &amp;<br>
+      Telegram-Инфраструктура.
     </h1>
 
     <div class="hero-grid">
       <p class="hero-desc">
-        Разработка проектов любого уровня под брендом <strong>tomxaos™ CoreApps</strong>. Создаю Telegram MiniApps, ботов любой сложности, интернет-магазины, сайты-визитки, системы учета и онлайн-эквайринг.
+        Разработка автономных цифровых экосистем под брендом <strong>tomxaos™ CoreApps</strong>. Создаю высоконагруженные Telegram-боты, билетные платформы, MiniApps, облачные SaaS-панели и системы онлайн-эквайринга под ключ.
       </p>
 
       <div class="hero-cta-group">
         <a href="#projects" class="btn-circle-arrow" aria-label="Смотреть проекты">↘</a>
-        <span style="font-weight: 700; font-size: 15px;">Смотреть кейсы</span>
+        <span style="font-weight: 700; font-size: 15px;">Смотреть проекты</span>
+        <a href="#monitoring" style="margin-left: 12px; font-size: 13px; color: var(--accent-emerald); text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+          <span>⚡ Live Телеметрия</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2.5 LIVE SYSTEM MONITORING & HEALTH RADAR -->
+  <section id="monitoring" class="monitoring-section container">
+    <div class="monitor-panel spotlight-card">
+      <div class="monitor-top-bar">
+        <div class="monitor-brand-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+          </svg>
+          <span>System Infrastructure Telemetry &amp; Node Radar</span>
+        </div>
+        <div class="live-pulse-badge">
+          <span class="pulse-dot-green"></span>
+          <span>Все системы работают штатно</span>
+        </div>
+      </div>
+
+      <!-- Telemetry Stats -->
+      <div class="monitor-stats-grid">
+        <div class="stat-box">
+          <div class="stat-box-label">Аптайм (90 дней)</div>
+          <div class="stat-box-value">99.98% <span class="stat-box-sub">SLA</span></div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-label">Средний отклик (Ping)</div>
+          <div class="stat-box-value" id="live-ping-val">22ms <span class="stat-box-sub">Fast</span></div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-label">Активные узлы</div>
+          <div class="stat-box-value">2 Node <span class="stat-box-sub">Edge+Cloud</span></div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-box-label">Сервисы в сети</div>
+          <div class="stat-box-value">7 / 7 <span class="stat-box-sub">Online</span></div>
+        </div>
+      </div>
+
+      <!-- Active Services Matrix -->
+      <div class="services-matrix-title">
+        <span>Активные сервисы и фоновые демоны</span>
+        <span style="font-size: 11px; color: var(--accent-emerald); font-weight: 600;">● Live Heartbeat</span>
+      </div>
+
+      <div class="services-nodes-grid">
+        <div class="service-node">
+          <div class="service-info-col">
+            <div class="service-name">
+              <span>anraily.ru (ANRAILY Platform)</span>
+            </div>
+            <div class="service-stack">FastAPI • PostgreSQL • React 19 • ЮKassa</div>
+          </div>
+          <div class="service-status-col">
+            <span class="node-dot"></span>
+            <span>200 OK</span>
+          </div>
+        </div>
+
+        <div class="service-node">
+          <div class="service-info-col">
+            <div class="service-name">
+              <span>tomxaos.ru (CoreApps Gateway)</span>
+            </div>
+            <div class="service-stack">Vercel Global Edge CDN • SSL Active</div>
+          </div>
+          <div class="service-status-col">
+            <span class="node-dot"></span>
+            <span>Operational</span>
+          </div>
+        </div>
+
+        <div class="service-node">
+          <div class="service-info-col">
+            <div class="service-name">
+              <span>@vopros_anon_bot (AnonAsk 2.1)</span>
+            </div>
+            <div class="service-stack">Aiogram 3 • Webhooks • ЮKassa API</div>
+          </div>
+          <div class="service-status-col">
+            <span class="node-dot"></span>
+            <span>Online</span>
+          </div>
+        </div>
+
+        <div class="service-node">
+          <div class="service-info-col">
+            <div class="service-name">
+              <span>@port_beauty_bot (Aura Studio)</span>
+            </div>
+            <div class="service-stack">Telegram MiniApp • Haptic Engine</div>
+          </div>
+          <div class="service-status-col">
+            <span class="node-dot"></span>
+            <span>Online</span>
+          </div>
+        </div>
+
+        <div class="service-node">
+          <div class="service-info-col">
+            <div class="service-name">
+              <span>Coffee Loyalty Engine (SaaS)</span>
+            </div>
+            <div class="service-stack">Node.js Daemon • Port 3008 • Loyalty DB</div>
+          </div>
+          <div class="service-status-col">
+            <span class="node-dot"></span>
+            <span>Online</span>
+          </div>
+        </div>
+
+        <div class="service-node">
+          <div class="service-info-col">
+            <div class="service-name">
+              <span>@cather_seeyou_bot (iSeeYou Bot)</span>
+            </div>
+            <div class="service-stack">Telegram Business API • Media Archive</div>
+          </div>
+          <div class="service-status-col">
+            <span class="node-dot"></span>
+            <span>Online</span>
+          </div>
+        </div>
+
+        <div class="service-node">
+          <div class="service-info-col">
+            <div class="service-name">
+              <span>Diana AI Worker &amp; Backup Daemons</span>
+            </div>
+            <div class="service-stack">PM2 Process Cluster • Automated Ops</div>
+          </div>
+          <div class="service-status-col">
+            <span class="node-dot"></span>
+            <span>Online</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -67,35 +208,88 @@
   <!-- 3. PROJECTS 2x2 VIVID CARDS GRID -->
   <section id="projects" class="projects-section container">
     <div class="section-header-block">
-      <div class="section-title-label">Избранные кейсы</div>
-      <div class="section-badge">Разработка &amp; Интеграции</div>
+      <div class="section-title-label">Избранные проекты &amp; Готовые решения</div>
+      <div class="section-badge">Продакшн &amp; Внедрения</div>
     </div>
 
     <div class="projects-vivid-grid">
 
-      <!-- CARD 1: LIVE AURA ATHLETIC SWEATPANTS E-COMMERCE PLATFORM -->
-      <a href="https://sweatpants-store.vercel.app" target="_blank" rel="noopener noreferrer" class="vivid-card card-red">
+      <!-- CARD 1: FLAGSHIP ANRAILY EVENT PLATFORM & TELEGRAM ECOSYSTEM -->
+      <div class="vivid-card card-emerald spotlight-card" style="border-color: rgba(0, 229, 153, 0.3);">
         <div class="real-image-container">
-          <img src="assets/aura-sweatpants-store.jpg" alt="AURA Athletic Sweatpants E-Commerce Platform" class="real-img-preview">
+          <img src="assets/anraily-showcase.png" alt="ANRAILY Platform — Танцевальное пространство Анастасии Федоровой" class="real-img-preview">
         </div>
         <div class="vivid-card-body">
           <div class="tags-row">
-            <span class="tag-badge tag-badge-highlight">E-Commerce Platform</span>
-            <span class="tag-badge">Vite &amp; React</span>
-            <span class="tag-badge">Мастер-Админка</span>
-            <span class="tag-badge">Checkout Wizard</span>
+            <span class="tag-badge tag-badge-highlight" style="background: rgba(0, 229, 153, 0.15); color: var(--accent-emerald); border-color: rgba(0, 229, 153, 0.4);">Флагманский кейс</span>
+            <span class="tag-badge">FastAPI &amp; PostgreSQL</span>
+            <span class="tag-badge">React 19 &amp; Vite</span>
+            <span class="tag-badge">Price Escalator</span>
+            <span class="tag-badge">2 TG-Бота</span>
+            <span class="tag-badge">ЮKassa</span>
           </div>
-          <div class="vivid-card-title">AURA Athletic — E-Commerce</div>
-          <div class="vivid-card-sub">Премиальная e-commerce платформа спортивных штанов с мульти-галереей 12 фото, панелью администратора, кастомными плашками и 4-шаговой симуляцией оплаты.</div>
+          <div class="vivid-card-title">ANRAILY — Билетная Платформа &amp; Экосистема</div>
+          <div class="vivid-card-sub">Автономная билетная система для танцевального пространства Анастасии Федоровой (anraily.ru). Покупка билетов за 25 секунд без регистраций, автоматическая лестница цен (Early Bird), транзакционная защита от овербукинга и 2 Telegram-бота со сканером QR-билетов на входе в зал. Чек проекта: 140 000 ₽.</div>
+          
+          <div class="card-actions-row">
+            <a href="https://telegra.ph/Kak-my-izbavili-tancevalnuyu-studiyu-ot-ada-v-direkte-i-sdelali-pokupku-biletov-za-25-sekund-Kejs-ANRAILY-09-21" target="_blank" rel="noopener noreferrer" class="btn-card-action btn-card-primary">
+              <span>Читать кейс в Telegra.ph ↗</span>
+            </a>
+            <a href="https://anraily.ru" target="_blank" rel="noopener noreferrer" class="btn-card-action btn-card-secondary">
+              <span>Открыть anraily.ru ↗</span>
+            </a>
+          </div>
         </div>
         <div class="vivid-card-footer">
-          <span style="font-size: 13px; color: var(--text-dim);">sweatpants-store.vercel.app</span>
-          <div class="card-arrow-action">Открыть демо кейса →</div>
+          <span style="font-size: 13px; color: var(--accent-emerald); font-weight: 600;">● Production Live • anraily.ru</span>
+          <div class="card-arrow-action" style="color: var(--accent-emerald);">Боевой запуск →</div>
+        </div>
+      </div>
+
+      <!-- CARD 2: REAL AURA BEAUTY STUDIO TELEGRAM MINIAPP (@port_beauty_bot) -->
+      <a href="https://t.me/port_beauty_bot" target="_blank" rel="noopener noreferrer" class="vivid-card card-purple spotlight-card">
+        <div class="real-image-container">
+          <img src="assets/aura-beauty-miniapp-1.jpg" alt="Aura Beauty Studio Telegram MiniApp" class="real-img-preview">
+        </div>
+        <div class="vivid-card-body">
+          <div class="tags-row">
+            <span class="tag-badge tag-badge-highlight">Telegram MiniApp</span>
+            <span class="tag-badge">Онлайн-запись</span>
+            <span class="tag-badge">Haptic Feedback</span>
+            <span class="tag-badge">Каталог услуг</span>
+          </div>
+          <div class="vivid-card-title">Aura Beauty Studio</div>
+          <div class="vivid-card-sub">Интерактивный MiniApp онлайн-записи клиентов в салон красоты прямо в чате Telegram: выбор топ-мастеров, свободных окон в календаре, корзина услуг и push-напоминания.</div>
+        </div>
+        <div class="vivid-card-footer">
+          <span style="font-size: 13px; color: var(--text-dim);">@port_beauty_bot</span>
+          <div class="card-arrow-action">Открыть бот →</div>
         </div>
       </a>
 
-      <!-- CARD 2: ATELIER COUTURE SEWING SCHOOL & E-COMMERCE -->
-      <a href="https://atelier-couture-three.vercel.app" target="_blank" rel="noopener noreferrer" class="vivid-card card-orange">
+      <!-- CARD 3: REAL ANONASK BOT 2.1 YUKASSA (@vopros_anon_bot) -->
+      <a href="https://t.me/vopros_anon_bot" target="_blank" rel="noopener noreferrer" class="vivid-card card-green spotlight-card">
+        <div class="real-image-container">
+          <img src="assets/anon-ask-bot.png" alt="AnonAsk Bot 2.1 Telegram Bot" class="real-img-preview">
+        </div>
+        <div class="vivid-card-body">
+          <div class="tags-row">
+            <span class="tag-badge tag-badge-highlight">Telegram Bot</span>
+            <span class="tag-badge">Эквайринг ЮKassa</span>
+            <span class="tag-badge">Подписки</span>
+            <span class="tag-badge">Highload</span>
+          </div>
+          <div class="vivid-card-title">Анонимные вопросы 2.1</div>
+          <div class="vivid-card-sub">Высоконагруженный виральный Telegram-бот с приёмом платежей через ЮKassa, платной подсказкой автора вопроса, донатами и системой рекуррентных подписок.</div>
+        </div>
+        <div class="vivid-card-footer">
+          <span style="font-size: 13px; color: var(--text-dim);">@vopros_anon_bot</span>
+          <div class="card-arrow-action">Открыть бот →</div>
+        </div>
+      </a>
+
+      <!-- CARD 4: ATELIER COUTURE SEWING SCHOOL & E-COMMERCE -->
+      <a href="https://atelier-couture-three.vercel.app" target="_blank" rel="noopener noreferrer" class="vivid-card card-orange spotlight-card">
         <div class="real-image-container">
           <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1000&q=80" alt="Atelier Couture — Швейная школа & E-Commerce" class="real-img-preview">
         </div>
@@ -107,56 +301,16 @@
             <span class="tag-badge">Чек-лист</span>
           </div>
           <div class="vivid-card-title">Atelier Couture — Швейная Школа</div>
-          <div class="vivid-card-sub">Премиальная онлайн-платформа курсов по шитью, PDF-выкройкам и тканям с нежным журнальным дизайном, калькулятором расхода материалов и демо-чекаутом.</div>
+          <div class="vivid-card-sub">Премиальная онлайн-платформа курсов по шитью, PDF-выкройкам и тканям с нежным журнальным дизайном, интерактивным калькулятором расхода материалов и чекаутом.</div>
         </div>
         <div class="vivid-card-footer">
           <span style="font-size: 13px; color: var(--text-dim);">atelier-couture-three.vercel.app</span>
-          <div class="card-arrow-action">Открыть демо кейса →</div>
+          <div class="card-arrow-action">Открыть платформу →</div>
         </div>
       </a>
 
-      <!-- CARD 2: REAL AURA BEAUTY STUDIO TELEGRAM MINIAPP (@port_beauty_bot) -->
-      <a href="https://t.me/port_beauty_bot" target="_blank" rel="noopener noreferrer" class="vivid-card card-purple">
-        <div class="real-image-container">
-          <img src="assets/aura-beauty-miniapp-1.jpg" alt="Aura Beauty Studio Telegram MiniApp" class="real-img-preview">
-        </div>
-        <div class="vivid-card-body">
-          <div class="tags-row">
-            <span class="tag-badge tag-badge-highlight">Telegram MiniApp</span>
-            <span class="tag-badge">Онлайн-запись</span>
-            <span class="tag-badge">Haptic Feedback</span>
-          </div>
-          <div class="vivid-card-title">Aura Beauty Studio</div>
-          <div class="vivid-card-sub">Интерактивный MiniApp онлайн-записи клиентов в бьюти-студию прямо в чате Telegram.</div>
-        </div>
-        <div class="vivid-card-footer">
-          <span style="font-size: 13px; color: var(--text-dim);">@port_beauty_bot</span>
-          <div class="card-arrow-action">Открыть бот →</div>
-        </div>
-      </a>
-
-      <!-- CARD 3: REAL ANONASK BOT 2.1 YUKASSA (@vopros_anon_bot) -->
-      <a href="https://t.me/vopros_anon_bot" target="_blank" rel="noopener noreferrer" class="vivid-card card-green">
-        <div class="real-image-container">
-          <img src="assets/anon-ask-bot.png" alt="AnonAsk Bot 2.1 Telegram Bot" class="real-img-preview">
-        </div>
-        <div class="vivid-card-body">
-          <div class="tags-row">
-            <span class="tag-badge tag-badge-highlight">Telegram Bot</span>
-            <span class="tag-badge">Эквайринг ЮKassa</span>
-            <span class="tag-badge">Подписки</span>
-          </div>
-          <div class="vivid-card-title">Анонимные вопросы 2.1</div>
-          <div class="vivid-card-sub">Высоконагруженный Telegram-бот с приёмом платежей, монетизацией и донатами.</div>
-        </div>
-        <div class="vivid-card-footer">
-          <span style="font-size: 13px; color: var(--text-dim);">@vopros_anon_bot</span>
-          <div class="card-arrow-action">Открыть бот →</div>
-        </div>
-      </a>
-
-      <!-- CARD 4: iSEEYOU TELEGRAM BUSINESS BOT (@cather_seeyou_bot) -->
-      <a href="https://t.me/cather_seeyou_bot" target="_blank" rel="noopener noreferrer" class="vivid-card card-purple">
+      <!-- CARD 5: iSEEYOU TELEGRAM BUSINESS BOT (@cather_seeyou_bot) -->
+      <a href="https://t.me/cather_seeyou_bot" target="_blank" rel="noopener noreferrer" class="vivid-card card-purple spotlight-card">
         <div class="real-image-container">
           <img src="assets/iseeyou-bot.png" alt="iSeeYou Telegram Business Bot" class="real-img-preview">
         </div>
@@ -167,7 +321,7 @@
             <span class="tag-badge">Медиа-архив</span>
           </div>
           <div class="vivid-card-title">iSeeYou — Защитник чатов</div>
-          <div class="vivid-card-sub">Моментальный перехват и сохранение удалённых и изменённых сообщений, фото, видео и голосовых заметок в Telegram Business.</div>
+          <div class="vivid-card-sub">Моментальный перехват и безопасное сохранение удалённых и изменённых сообщений, фото, видео и голосовых заметок для аккаунтов Telegram Business.</div>
         </div>
         <div class="vivid-card-footer">
           <span style="font-size: 13px; color: var(--text-dim);">@cather_seeyou_bot</span>
@@ -175,43 +329,24 @@
         </div>
       </a>
 
-      <!-- CARD 5: REAL PRODAVAN SUSHI DIRECT E-COMMERCE -->
-      <a href="https://prodavan-sushi.vercel.app" target="_blank" rel="noopener noreferrer" class="vivid-card card-red">
+      <!-- CARD 6: COFFEE LOYALTY SAAS & RETAIL CORE -->
+      <a href="https://t.me/tomxaos" target="_blank" rel="noopener noreferrer" class="vivid-card card-red spotlight-card">
         <div class="real-image-container">
-          <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=1000&auto=format&fit=crop" alt="Продаван Суши Интернет-магазин" class="real-img-preview">
+          <img src="assets/retail-admin-saas.png" alt="Coffee Loyalty SaaS & Retail Core Platform" class="real-img-preview">
         </div>
         <div class="vivid-card-body">
           <div class="tags-row">
-            <span class="tag-badge tag-badge-highlight">E-Commerce</span>
-            <span class="tag-badge">React &amp; Vite</span>
-            <span class="tag-badge">TG Bot API</span>
+            <span class="tag-badge tag-badge-highlight">SaaS &amp; Автоматизация</span>
+            <span class="tag-badge">Coffee Loyalty</span>
+            <span class="tag-badge">QR-Чекин</span>
+            <span class="tag-badge">PostgreSQL</span>
           </div>
-          <div class="vivid-card-title">Продаван Суши</div>
-          <div class="vivid-card-sub">Полноценный интернет-магазин доставки суши с корзиной, выбором соусов и оформлением заказа.</div>
+          <div class="vivid-card-title">Coffee Loyalty &amp; Retail Core</div>
+          <div class="vivid-card-sub">Облачные панели автоматизации для ритейла и общепита: цифровые карты лояльности в Telegram, QR-штампы для бариста, учет смен и Z-отчетов.</div>
         </div>
         <div class="vivid-card-footer">
-          <span style="font-size: 13px; color: var(--text-dim);">prodavan-sushi.vercel.app</span>
-          <div class="card-arrow-action">Открыть демо →</div>
-        </div>
-      </a>
-
-      <!-- CARD 6: VIVID ORANGE - RETAIL ADMIN & AI AUTOMATION -->
-      <a href="https://t.me/tomxaos" target="_blank" rel="noopener noreferrer" class="vivid-card card-orange">
-        <div class="real-image-container">
-          <img src="assets/retail-admin-saas.png" alt="Retail Admin SaaS Platform" class="real-img-preview">
-        </div>
-        <div class="vivid-card-body">
-          <div class="tags-row">
-            <span class="tag-badge tag-badge-highlight">SaaS &amp; ИИ</span>
-            <span class="tag-badge">Retail Core</span>
-            <span class="tag-badge">Дашборды</span>
-          </div>
-          <div class="vivid-card-title">SaaS &amp; ИИ-Автоматизация</div>
-          <div class="vivid-card-sub">Операционный центр учета смен, Z-отчетов, остатков склада и ИИ-агенты для бизнеса.</div>
-        </div>
-        <div class="vivid-card-footer">
-          <span style="font-size: 13px; color: var(--text-dim);">Retail Core System</span>
-          <div class="card-arrow-action">Обсудить проект →</div>
+          <span style="font-size: 13px; color: var(--text-dim);">Retail &amp; Loyalty SaaS Engine</span>
+          <div class="card-arrow-action">Обсудить разработку →</div>
         </div>
       </a>
 

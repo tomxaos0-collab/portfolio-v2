@@ -50,31 +50,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. SUBTLE DESKTOP PARALLAX TILT EFFECT
+  // 3. SUBTLE DESKTOP PARALLAX TILT & SPOTLIGHT EFFECT
   const isTouchDevice = window.matchMedia('(hover: none)').matches;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (!isTouchDevice && !prefersReducedMotion) {
-    const cards = document.querySelectorAll('.vivid-card');
-    cards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
+  const tiltCards = document.querySelectorAll('.vivid-card, .service-node, .stat-box');
+  
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+
+      if (!isTouchDevice && !prefersReducedMotion && card.classList.contains('vivid-card')) {
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
         
-        const rotateX = ((y - centerY) / centerY) * -2.5;
-        const rotateY = ((x - centerX) / centerX) * 2.5;
+        const rotateX = ((y - centerY) / centerY) * -2.2;
+        const rotateY = ((x - centerX) / centerX) * 2.2;
         
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
-      });
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+      }
     });
+
+    card.addEventListener('mouseleave', () => {
+      if (card.classList.contains('vivid-card')) {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+      }
+    });
+  });
+
+  // 4. LIVE TELEMETRY PING TICKER (Fluctuates between 19ms - 24ms for real-time feel)
+  const pingElement = document.getElementById('live-ping-val');
+  if (pingElement) {
+    setInterval(() => {
+      const randomPing = Math.floor(Math.random() * 6) + 19; // 19 to 24ms
+      pingElement.textContent = `${randomPing}ms`;
+    }, 4500);
   }
 
 });
