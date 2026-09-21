@@ -97,7 +97,7 @@ body {
 }
 
 /* =========================================================
-   1. HEADER
+   1. HEADER (DESIGNER COBALT & SAPPHIRE BLUE)
    ========================================================= */
 .site-header {
   position: sticky;
@@ -111,77 +111,100 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.88) 0%, rgba(13, 37, 72, 0.82) 50%, rgba(9, 20, 40, 0.92) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(59, 130, 246, 0.28);
+  border-radius: var(--radius-pill);
+  padding: 10px 24px;
+  box-shadow: 0 10px 30px -8px rgba(3, 15, 38, 0.7), 0 0 20px rgba(37, 99, 235, 0.16);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-inner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.6), transparent);
+  pointer-events: none;
 }
 
 .brand-logo {
   font-family: var(--font-heading);
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--text-white);
   text-decoration: none;
   white-space: nowrap;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, text-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
 }
 
 .brand-logo:hover {
-  opacity: 0.85;
+  opacity: 0.95;
+  text-shadow: 0 0 16px rgba(59, 130, 246, 0.6);
 }
 
 .brand-tm {
   font-size: 11px;
   vertical-align: super;
-  font-weight: 600;
-  opacity: 0.6;
-  margin: 0 2px;
+  font-weight: 700;
+  color: #60a5fa;
+  margin: 0 3px 0 2px;
 }
 
 .nav-pill {
   display: flex;
   align-items: center;
-  gap: 28px;
-  background: var(--bg-pill);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-color);
-  padding: 10px 28px;
+  gap: 24px;
+  background: rgba(14, 30, 58, 0.6);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  padding: 6px 20px;
   border-radius: var(--radius-pill);
   list-style: none;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .nav-pill a {
   text-decoration: none;
-  color: var(--text-muted);
-  font-size: 14px;
+  color: #cbd5e1;
+  font-size: 13.5px;
   font-weight: 600;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
   display: inline-block;
 }
 
 .nav-pill a:hover {
-  color: var(--text-white);
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
 }
 
 .btn-header {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 14px;
+  padding: 7px 16px;
   border-radius: var(--radius-pill);
-  background: var(--text-white);
-  color: #090a0c;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(147, 197, 253, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
 }
 
 @media (hover: hover) {
   .btn-header:hover {
     transform: translateY(-2px);
-    background-color: #e4e4e7;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.55);
   }
 }
 
@@ -560,9 +583,23 @@ body {
   text-align: center;
   gap: 24px;
   padding: 64px 32px;
-  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-main) 100%);
-  border: 1px solid var(--border-color);
+  background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.12) 0%, rgba(13, 20, 34, 0.95) 70%, var(--bg-main) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.25);
   border-radius: var(--radius-xl);
+  box-shadow: 0 16px 40px -12px rgba(2, 6, 23, 0.8), 0 0 30px rgba(37, 99, 235, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.5), transparent);
+  pointer-events: none;
 }
 
 .cta-display {
@@ -579,19 +616,21 @@ body {
   gap: 12px;
   padding: 16px 36px;
   border-radius: var(--radius-pill);
-  background: var(--text-white);
-  color: #090a0c;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
   font-size: 16px;
   font-weight: 700;
   text-decoration: none;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(147, 197, 253, 0.4);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
 }
 
 @media (hover: hover) {
   .btn-cta:hover {
     transform: translateY(-2px);
-    background-color: #e4e4e7;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.55);
   }
 }
 
@@ -667,6 +706,10 @@ body {
   .site-header {
     top: 8px;
     margin-bottom: 24px;
+  }
+
+  .header-inner {
+    padding: 8px 16px;
   }
 
   .brand-logo {
